@@ -1,0 +1,12 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+button {
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: rgba(243, 135, 3, 0.659);
+}

@@ -1,0 +1,29 @@
+.rightContent {
+  margin: 20px 0 30px 0;
+  width: 60%;
+}
+
+.image {
+  width: 80%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.label {
+  font-size: 20px;
+
+}
+
+.inputBox {
+  margin-top: 20px;
+  width: 80%;
+  height:50px;
+  font-size: 20px;
+}
+
+.button {
+  margin-top: 2%;
+  width: 39%;
+  height: 50px;
+  margin-right: 10px;
+}
