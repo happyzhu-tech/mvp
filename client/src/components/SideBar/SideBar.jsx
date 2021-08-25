@@ -9,6 +9,7 @@ const SideBar = () => {
     event.preventDefault();
     globalData.dispatch({ type: 'updateIsIngredientPage', data: false });
     globalData.dispatch({ type: 'updateIsHomePage', data: true });
+    globalData.dispatch({ type: 'updateIngredients', data: [] });
   };
 
   return (
@@ -16,7 +17,9 @@ const SideBar = () => {
       <button className={style.button} onClick={backToHomePageHandler}>Home Page</button>
       <h5>Ingredients you have added:</h5>
       <ul>
-        <li>milk</li>
+        {globalData.state.ingredients.map((ingredient, index) => (
+          <li key={index} className={style.listItem}>{ingredient}</li>
+        ))}
       </ul>
     </div>
   );
