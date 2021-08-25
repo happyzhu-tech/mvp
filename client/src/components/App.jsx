@@ -8,7 +8,8 @@ import style from './App.module.css';
 const initialState = {
   ingredients: [],
   isHomePage: true,
-  isIngredientPage: false,
+  isMainPage: false,
+  showRecipe: false,
 };
 
 const reducer = (state, action) => {
@@ -17,8 +18,10 @@ const reducer = (state, action) => {
       return { ...state, ingredients: action.data };
     case 'updateIsHomePage':
       return { ...state, isHomePage: action.data };
-    case 'updateIsIngredientPage':
-      return { ...state, isIngredientPage: action.data };
+    case 'updateIsMainPage':
+      return { ...state, isMainPage: action.data };
+    case 'updateShowRecipe':
+      return { ...state, showRecipe: action.data };
     default:
       return state;
   }
@@ -33,12 +36,11 @@ const App = () => {
     <div className={style.container}>
       <GlobalContext.Provider value={{ state, dispatch }}>
         {state.isHomePage && <HomePage />}
-        {state.isIngredientPage
+        {state.isMainPage
         && (
           <div className={style.mainContent}>
             <SideBar />
-            {/* <AddIngredient /> */}
-            <ShowRecipe />
+            {state.showRecipe ? <ShowRecipe /> : <AddIngredient />}
           </div>
         )}
       </GlobalContext.Provider>

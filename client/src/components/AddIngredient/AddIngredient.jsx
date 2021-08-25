@@ -17,9 +17,15 @@ const AddIngredient = () => {
     event.preventDefault();
     const newArr = globalData.state.ingredients.slice();
     newArr.push(inputValue);
-    // dispatch
+    // update ingredients array of the global state
     globalData.dispatch({ type: 'updateIngredients', data: newArr });
     setInputValue('');
+  };
+
+  const cookClickHanlder = (event) => {
+    event.preventDefault();
+    // TODO: axios request
+    globalData.dispatch({ type: 'updateShowRecipe', data: true });
   };
 
   return (
@@ -45,7 +51,7 @@ const AddIngredient = () => {
           <img src={add} alt="add_button" className={style.icon} />
         </div>
         <div className={style.bigButton}>
-          <button type="submit" className={style.button} disabled={!globalData.state.ingredients.length}>Cook</button>
+          <button type="submit" className={style.button} disabled={!globalData.state.ingredients.length} onClick={cookClickHanlder}>Cook</button>
           <img src={cook} alt="cook_button" className={style.icon} />
         </div>
       </div>

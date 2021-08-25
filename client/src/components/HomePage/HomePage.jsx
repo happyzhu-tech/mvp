@@ -6,17 +6,18 @@ import { GlobalContext } from '../App.jsx';
 const HomePage = () => {
   const globalData = useContext(GlobalContext);
 
-  const gotoIngredientPageHandler = (event) => {
+  const gotoMainPageHandler = (event) => {
     event.preventDefault();
-    globalData.dispatch({ type: 'updateIsIngredientPage', data: true });
+    globalData.dispatch({ type: 'updateIsMainPage', data: true });
     globalData.dispatch({ type: 'updateIsHomePage', data: false });
+    globalData.dispatch({ type: 'updateShowRecipe', data: false });
   };
 
   return (
     <div className={style.homePage}>
       <h2 className={style.title}>Meal Decider</h2>
       <img src={logo} alt="homepage_logo" className={style.logo} />
-      <button type="submit" className={style.button} onClick={gotoIngredientPageHandler}>
+      <button type="submit" className={style.button} onClick={gotoMainPageHandler}>
         What should I eat?
       </button>
       <button type="submit" className={style.button}>Add Recipe!</button>
