@@ -1,0 +1,20 @@
+.card {
+  width: 80%;
+  height: 300px;
+  border: 2px black solid;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+
+.image {
+  width: 90%;
+  height: 200px;
+  border: 2px black solid;
+  object-fit: scale-down;
+}
+
+.name {
+  display: inline-block;
+  margin-right: 5px;
+}

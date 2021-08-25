@@ -2,6 +2,7 @@ import React, { useReducer } from 'react';
 import HomePage from './HomePage/HomePage.jsx';
 import AddIngredient from './AddIngredient/AddIngredient.jsx';
 import SideBar from './SideBar/SideBar.jsx';
+import ShowRecipe from './ShowRecipe/ShowRecipe.jsx';
 import style from './App.module.css';
 
 const initialState = {
@@ -36,7 +37,8 @@ const App = () => {
         && (
           <div className={style.mainContent}>
             <SideBar />
-            <AddIngredient />
+            {/* <AddIngredient /> */}
+            <ShowRecipe />
           </div>
         )}
       </GlobalContext.Provider>
