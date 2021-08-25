@@ -1,15 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import style from './AddIngredient.module.css';
 import ingredientImg from './ingredients.png';
 import add from './add.png';
 import cook from './cook.png';
+import { GlobalContext } from '../App.jsx';
 
 const AddIngredient = () => {
-  const [ingredients, setIngredients] = useState([]);
+  const globalData = useContext(GlobalContext);
+  // const [ingredients, setIngredients] = useState([]); // global
   const [inputValue, setInputValue] = useState('');
 
   const inputChangeHandler = (event) => {
     setInputValue(event.target.value);
+  };
+
+  const addClickHandler = (event) => {
+    event.preventDefault();
+    const newArr = ingredients.slice();
+    newArr.push(inputValue);
+    //dispatch
+
+    setInputValue('');
   };
 
   return (
@@ -23,11 +34,11 @@ const AddIngredient = () => {
       </div>
       <div className={style.buttons}>
         <div className={style.bigButton}>
-          <button className={style.button} disabled={!inputValue}>Add</button>
+          <button className={style.button} disabled={!inputValue} onClick={addClickHandler}>Add</button>
           <img src={add} className={style.icon}></img>
         </div>
         <div className={style.bigButton}>
-          <button className={style.button} disabled={!ingredients.length}>Cook</button>
+          <button className={style.button} disabled={!globalData.state.ingredients.length}>Cook</button>
           <img src={cook} className={style.icon}></img>
         </div>
       </div>
