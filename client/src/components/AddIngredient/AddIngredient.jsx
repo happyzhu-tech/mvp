@@ -17,7 +17,7 @@ const AddIngredient = () => {
     event.preventDefault();
     const newArr = globalData.state.ingredients.slice();
     newArr.push(inputValue);
-    //dispatch
+    // dispatch
     globalData.dispatch({ type: 'updateIngredients', data: newArr });
     setInputValue('');
   };
@@ -25,20 +25,28 @@ const AddIngredient = () => {
   return (
     <div className={style.rightContent}>
       <h2>What Ingredients Do You Have At Home?</h2>
-      <img src={ingredientImg} className={style.image}></img>
+      <img src={ingredientImg} alt="ingredients" className={style.image} />
       <div>
-        <label htmlFor='ingredient' className={style.label}>Ingredient you have:</label>
-        <input type='text' name='ingredient' id='ingredient' className={style.inputBox} value={inputValue}
-          onChange={inputChangeHandler}></input>
+        <label htmlFor="ingredient" className={style.label}>
+          Ingredient you have:
+          <input
+            type="text"
+            name="ingredient"
+            id="ingredient"
+            className={style.inputBox}
+            value={inputValue}
+            onChange={inputChangeHandler}
+          />
+        </label>
       </div>
       <div className={style.buttons}>
         <div className={style.bigButton}>
-          <button className={style.button} disabled={!inputValue} onClick={addClickHandler}>Add</button>
-          <img src={add} className={style.icon}></img>
+          <button type="submit" className={style.button} disabled={!inputValue} onClick={addClickHandler}>Add</button>
+          <img src={add} alt="add_button" className={style.icon} />
         </div>
         <div className={style.bigButton}>
-          <button className={style.button} disabled={!globalData.state.ingredients.length}>Cook</button>
-          <img src={cook} className={style.icon}></img>
+          <button type="submit" className={style.button} disabled={!globalData.state.ingredients.length}>Cook</button>
+          <img src={cook} alt="cook_button" className={style.icon} />
         </div>
       </div>
     </div>

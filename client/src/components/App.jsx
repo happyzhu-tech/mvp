@@ -32,10 +32,13 @@ const App = () => {
     <div className={style.container}>
       <GlobalContext.Provider value={{ state, dispatch }}>
         {state.isHomePage && <HomePage />}
-        {state.isIngredientPage && <div className={style.mainContent}>
-          <SideBar />
-          <AddIngredient />
-        </div>}
+        {state.isIngredientPage
+        && (
+          <div className={style.mainContent}>
+            <SideBar />
+            <AddIngredient />
+          </div>
+        )}
       </GlobalContext.Provider>
     </div>
   );

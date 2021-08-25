@@ -15,9 +15,11 @@ const HomePage = () => {
   return (
     <div className={style.homePage}>
       <h2 className={style.title}>Meal Decider</h2>
-      <img src={logo} className={style.logo}></img>
-      <button className={style.button} onClick={gotoIngredientPageHandler}>What should I eat?</button>
-      <button className={style.button}>Add Recipe!</button>
+      <img src={logo} alt="homepage_logo" className={style.logo} />
+      <button type="submit" className={style.button} onClick={gotoIngredientPageHandler}>
+        What should I eat?
+      </button>
+      <button type="submit" className={style.button}>Add Recipe!</button>
     </div>
   );
 };

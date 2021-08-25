@@ -14,7 +14,7 @@ const SideBar = () => {
 
   return (
     <div className={style.sideBar}>
-      <button className={style.button} onClick={backToHomePageHandler}>Home Page</button>
+      <button type="submit" className={style.button} onClick={backToHomePageHandler}>Home Page</button>
       <h5>Ingredients you have added:</h5>
       <ul>
         {globalData.state.ingredients.map((ingredient, index) => (
