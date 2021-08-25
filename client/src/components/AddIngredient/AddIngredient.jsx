@@ -7,7 +7,6 @@ import { GlobalContext } from '../App.jsx';
 
 const AddIngredient = () => {
   const globalData = useContext(GlobalContext);
-  // const [ingredients, setIngredients] = useState([]); // global
   const [inputValue, setInputValue] = useState('');
 
   const inputChangeHandler = (event) => {
@@ -16,10 +15,10 @@ const AddIngredient = () => {
 
   const addClickHandler = (event) => {
     event.preventDefault();
-    const newArr = ingredients.slice();
+    const newArr = globalData.state.ingredients.slice();
     newArr.push(inputValue);
     //dispatch
-
+    globalData.dispatch({ type: 'updateIngredients', data: newArr });
     setInputValue('');
   };
 
