@@ -1,29 +1,47 @@
 .rightContent {
-  margin: 20px 0 30px 0;
+  margin: 20px 0 20px 0;
   width: 60%;
 }
 
 .image {
-  width: 80%;
+  width: 75%;
   height: auto;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .label {
   font-size: 20px;
-
 }
 
 .inputBox {
-  margin-top: 20px;
+  margin-top: 15px;
   width: 80%;
   height:50px;
   font-size: 20px;
 }
-
-.button {
-  margin-top: 2%;
-  width: 39%;
+.buttons {
+  display: flex;
+}
+.bigButton {
+  margin-top: 20px;
+  width: 42%;
   height: 50px;
   margin-right: 10px;
+  display: flex;
+}
+.button {
+  width: 70%;
+  height: 50px;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  border: 1px black solid;
+  border-radius: 5px;
+  background-color: rgba(184, 180, 180, 0.31);
+}
+
+.icon:hover {
+  background-color: rgba(243, 135, 3, 0.659)
 }
