@@ -31,11 +31,21 @@ const Recipe = mongoose.model('Recipe', recipeSchema);
 
 // query
 const findRecipesByIngredients = (ingredientArr) => {
-  const len = typeof ingredientArr === 'string' ? 1 : ingredientArr.length;
+  let len = ingredientArr.length;
+  if (typeof ingredientArr === 'string') {
+    len = 1;
+    ingredientArr = [ingredientArr];
+  }
 
   return Recipe.find({ ingredients: { $size: len, $all: ingredientArr } });
 };
 
+const addRecipe = (recipeObj) => {
+  const doc = new Recipe(recipeObj);
+  return doc.save();
+};
+
 module.exports = {
   findRecipesByIngredients,
+  addRecipe,
 };

@@ -19,6 +19,17 @@ app.get('/recipes', (req, res) => {
     });
 });
 
+app.post('/addRecipe', (req, res) => {
+  db.addRecipe(req.body)
+    .then(() => {
+      res.status(201);
+    })
+    .catch((err) => {
+      console.log('writing data failed', err);
+      res.status(400).send(err);
+    });
+});
+
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
