@@ -1,17 +1,20 @@
 .card {
   width: 95%;
-  height: 330px;
-  border: 2px black solid;
+  height: 355px;
+  border: 3px rgb(247, 214, 152) solid;
   display: flex;
   flex-flow: column wrap;
   align-items: flex-start;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background-color: rgba(255, 166, 0, 0.31);
+  border-color: rgb(204, 173, 115);
 }
 
 .image {
-  width: 90%;
-  height: 200px;
-  border: 2px black solid;
-  object-fit: scale-down;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
 }
 
 .name {
@@ -30,6 +33,6 @@
 }
 
 .icon, .description {
-  margin-right: 8px;
+  margin-right: 15px;
   text-align: center;
 }
