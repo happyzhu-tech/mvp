@@ -30,11 +30,8 @@ const Recipe = mongoose.model('Recipe', recipeSchema);
 //   });
 
 // query
-// { ingredients: { $size: ingredientArr.length, $all: ingredientArr } }
 const findRecipesByIngredients = (ingredientArr) => {
-  // console.log(ingredientStr, typeof ingredientStr);
-  // const obj = ingredientStr.split()
-  const len = ingredientArr.length;
+  const len = typeof ingredientArr === 'string' ? 1 : ingredientArr.length;
 
   return Recipe.find({ ingredients: { $size: len, $all: ingredientArr } });
 };
