@@ -73,8 +73,8 @@ const RecipeForm = () => {
       url: 'http://localhost:3000/addRecipe',
       data: obj,
     })
-      .then(() => {
-        console.log('successfully submit form!');
+      .then((res) => {
+        console.log(res.data);
       })
       .catch((err) => {
         console.log('form submit error', err);

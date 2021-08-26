@@ -22,7 +22,7 @@ app.get('/recipes', (req, res) => {
 app.post('/addRecipe', (req, res) => {
   db.addRecipe(req.body)
     .then(() => {
-      res.status(201);
+      res.status(201).send('success submit!');
     })
     .catch((err) => {
       console.log('writing data failed', err);
