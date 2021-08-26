@@ -12,6 +12,7 @@ const initialState = {
   isMainPage: false,
   showRecipe: false,
   recipes: [],
+  isFormPage: false,
 };
 
 const reducer = (state, action) => {
@@ -26,6 +27,8 @@ const reducer = (state, action) => {
       return { ...state, showRecipe: action.data };
     case 'updateRecipes':
       return { ...state, recipes: action.data };
+    case 'updateIsFormPage':
+      return { ...state, isFormPage: action.data };
     default:
       return state;
   }
@@ -39,15 +42,15 @@ const App = () => {
   return (
     <div className={style.container}>
       <GlobalContext.Provider value={{ state, dispatch }}>
-        {/* {state.isHomePage && <HomePage />}
+        {state.isHomePage && <HomePage />}
         {state.isMainPage
         && (
           <div className={style.mainContent}>
             <SideBar />
             {state.showRecipe ? <ShowRecipe /> : <AddIngredient />}
           </div>
-        )} */}
-        <RecipeForm />
+        )}
+        {state.isFormPage && <RecipeForm />}
       </GlobalContext.Provider>
     </div>
   );

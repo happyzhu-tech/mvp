@@ -1,7 +1,6 @@
 .form {
   width: 70%;
   margin: 30px auto 0 auto;
-  border: 2px black solid;
   display: flex;
   flex-flow: column wrap;
   align-items: flex-start;
@@ -36,8 +35,8 @@
 }
 
 .button {
-  margin-top: 20px;
-  width: 50%;
-  height: 50px;
+  margin-top: 10px;
+  width: 45%;
+  height: 40px;
   font-size: 20px;
 }

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import style from './RecipeForm.module.css';
+import { GlobalContext } from '../App.jsx';
 
 const RecipeForm = () => {
   const [name, setName] = useState('');
@@ -12,8 +13,7 @@ const RecipeForm = () => {
   const [easyCheck, setEasyCheck] = useState(false);
   const [glutenCheck, setGlutenCheck] = useState(false);
   const [healthyCheck, setHealthyCheck] = useState(false);
-
-  // const Ref1 = React.createRef();
+  const globalData = useContext(GlobalContext);
 
   const nameChangeHandler = (event) => {
     setName(event.target.value);
@@ -23,11 +23,6 @@ const RecipeForm = () => {
     setIngredients(event.target.value);
   };
 
-  // const checkboxHandler = (event) => {
-  //   const newArr = features.slice();
-  //   newArr.push(event.target.getAttribute('name'));
-  //   setFeatures(newArr);
-  // };
   const easyCheckHandler = () => {
     const newArr = features.slice();
     newArr.push('easy');
@@ -96,6 +91,21 @@ const RecipeForm = () => {
     setHealthyCheck(false);
   };
 
+  const backHomeHandler = (event) => {
+    event.preventDefault();
+    setName('');
+    setIngredients([]);
+    setFeatures([]);
+    setCookTime('');
+    setImageUrl('');
+    setRecipeUrl('');
+    setEasyCheck(false);
+    setGlutenCheck(false);
+    setHealthyCheck(false);
+    globalData.dispatch({ type: 'updateIsHomePage', data: true });
+    globalData.dispatch({ type: 'updateIsFormPage', data: false });
+  };
+
   return (
     <form className={style.form}>
       <div className={style.entry}>
@@ -152,6 +162,7 @@ const RecipeForm = () => {
         </label>
       </div>
       <button type="submit" className={style.button} onClick={submitHandler}>Submit</button>
+      <button type="submit" className={style.button} onClick={backHomeHandler}>Back</button>
     </form>
   );
 };

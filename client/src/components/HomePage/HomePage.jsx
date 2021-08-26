@@ -13,6 +13,12 @@ const HomePage = () => {
     globalData.dispatch({ type: 'updateShowRecipe', data: false });
   };
 
+  const gotoFormHandler = (event) => {
+    event.preventDefault();
+    globalData.dispatch({ type: 'updateIsHomePage', data: false });
+    globalData.dispatch({ type: 'updateIsFormPage', data: true });
+  };
+
   return (
     <div className={style.homePage}>
       <h2 className={style.title}>Meal Decider</h2>
@@ -20,7 +26,7 @@ const HomePage = () => {
       <button type="submit" className={style.button} onClick={gotoMainPageHandler}>
         What should I eat?
       </button>
-      <button type="submit" className={style.button}>Add Recipe!</button>
+      <button type="submit" className={style.button} onClick={gotoFormHandler}>Add Recipe!</button>
     </div>
   );
 };
