@@ -1,4 +1,6 @@
 import React, { useState, useContext } from 'react';
+import axios from 'axios';
+import qs from 'qs';
 import style from './AddIngredient.module.css';
 import ingredientImg from './ingredients.png';
 import add from './add.png';
@@ -24,7 +26,21 @@ const AddIngredient = () => {
 
   const cookClickHanlder = (event) => {
     event.preventDefault();
-    // TODO: axios request
+
+    axios.get('http://localhost:3000/recipes', {
+      params: {
+        ingredients: globalData.state.ingredients,
+      },
+      paramsSerializer: (params) => (
+        qs.stringify(params, { arrayFormat: 'repeat' })
+      ),
+    })
+      .then((res) => {
+        globalData.dispatch({ type: 'updateRecipes', data: res.data });
+      })
+      .catch((err) => {
+        console.log('get recipes err', err);
+      });
     globalData.dispatch({ type: 'updateShowRecipe', data: true });
   };
 

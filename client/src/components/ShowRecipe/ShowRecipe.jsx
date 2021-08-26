@@ -4,10 +4,14 @@ import RecipeCard from '../RecipeCard/RecipeCard.jsx';
 import { GlobalContext } from '../App.jsx';
 
 const ShowRecipe = () => {
+  const globalData = useContext(GlobalContext);
+
   return (
     <div className={style.rightContent}>
       <h2>You Can Eat</h2>
-      <RecipeCard />
+      {globalData.state.recipes.map((recipe, index) => (
+        <RecipeCard info={recipe} key={index} />
+      ))}
     </div>
   );
 };

@@ -1,10 +1,10 @@
 .card {
-  width: 80%;
-  height: 300px;
+  width: 95%;
+  height: 330px;
   border: 2px black solid;
   display: flex;
   flex-flow: column wrap;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .image {
@@ -17,4 +17,19 @@
 .name {
   display: inline-block;
   margin-right: 5px;
+  font-weight: bold;
+}
+
+.ingredient {
+  margin-left: 4px;
+}
+
+.link {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.icon, .description {
+  margin-right: 8px;
+  text-align: center;
 }

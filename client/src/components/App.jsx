@@ -10,6 +10,7 @@ const initialState = {
   isHomePage: true,
   isMainPage: false,
   showRecipe: false,
+  recipes: [],
 };
 
 const reducer = (state, action) => {
@@ -22,6 +23,8 @@ const reducer = (state, action) => {
       return { ...state, isMainPage: action.data };
     case 'updateShowRecipe':
       return { ...state, showRecipe: action.data };
+    case 'updateRecipes':
+      return { ...state, recipes: action.data };
     default:
       return state;
   }
